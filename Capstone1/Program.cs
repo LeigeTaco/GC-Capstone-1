@@ -10,7 +10,7 @@ namespace Capstone1
     class Program
     {
 
-        static string GetUserInput(string prompt)   //Works
+        static string GetUserInput(string prompt)
         {
 
             Console.WriteLine(prompt);
@@ -18,7 +18,7 @@ namespace Capstone1
 
         }
 
-        static string ValidUserInput()              //Works
+        static string ValidUserInput()
         {
 
             string output = "";
@@ -70,36 +70,33 @@ namespace Capstone1
 
         }
 
-        static string PigFormat(string input, int type)
+        static string CaseCorrector(string word, bool[] caseArr)
         {
 
-            if (type == 0)          //Things like emails
+            char[] temp = new char[word.Length];
+
+            for(int i = 0; i < caseArr.Length; i++)
             {
 
-                return input;
+                if (caseArr[i])
+                {
+
+                    temp[i] = Char.ToUpper(word[i]);
+
+                }
+
+                else
+                {
+
+                    temp[i] = Char.ToLower(word[i]);
+
+                }
 
             }
 
-            else if (type == 1)     //Starts with a vowel
-            {
+            string output = new string(temp);
 
-
-
-            }
-
-            else if (type == 2)     //Consonant
-            {
-
-
-
-            }
-
-            else                    //I don't know how you got this.
-            {
-
-                return "ERROR " + type;
-
-            }
+            return output;
 
         }
 
@@ -108,33 +105,57 @@ namespace Capstone1
 
             string[] output = new string[words.Length];
 
-            //List<string> tempLetters = new List<string>();
-
             for (int i = words.Length - 1; i >= 0; i--)
             {
 
-                //Here is fine. Console.WriteLine(words[i]);
+                char[] word = words[i].ToCharArray();
 
-                if(words[i].Contains("*") || words[i].Contains("(") || words[i].Contains(")") || words[i].Contains("1") || words[i].Contains("2") || words[i].Contains("3") || words[i].Contains("4") || words[i].Contains("5") || words[i].Contains("6") || words[i].Contains("7") || words[i].Contains("8") || words[i].Contains("9") || words[i].Contains("0") || words[i].Contains("&") || words[i].Contains("^") || words[i].Contains("%") || words[i].Contains("$") || words[i].Contains("#") || words[i].Contains("@"))
+                //int punctPos;
+
+                //for (int k = 0; k < word.Length; k++)
+                //{
+
+                //    if(word[k] == '.' || word[k] == ',' || word[k] == '?' || word[k] == '!')
+                //    {
+
+                //        punctPos = k;
+
+                //    }
+
+                //}         This will be punctuation stuff, maybe.
+
+                for(int j = 0; j < word.Length;)
                 {
 
-                    output[i] = PigFormat(words[i], 0);
+                    if (Char.ToLowerInvariant(word[j]) == 'a' || Char.ToLowerInvariant(word[j]) == 'e' || Char.ToLowerInvariant(word[j]) == 'i' || Char.ToLowerInvariant(word[j]) == 'o' || Char.ToLowerInvariant(word[j]) == 'u')
+                    {
 
-                }
+                        if (j == 0)
+                        {
 
-                else if(words[i].ToLowerInvariant().Substring(0,1).Contains("a")|| words[i].ToLowerInvariant().Substring(0,1).Contains("e") || words[i].ToLowerInvariant().Substring(0,1).Contains("i") || words[i].ToLowerInvariant().Substring(0,1).Contains("o") || words[i].ToLowerInvariant().Substring(0,1).Contains("u"))
-                {
+                            string temp = new string(word);
+                            output[i] = temp + "way";
+                            j = word.Length;
 
-                    output[i] = PigFormat(words[i], 1);
-                    //Console.WriteLine(output[i]);
+                        }
 
-                }
+                        else
+                        {
 
-                else
-                {
+                            string temp = new string(word);
+                            output[i] = CaseCorrector(temp.Substring(j) + temp.Substring(0, j), CaseDetector(words[i])) + "ay";
+                            j = word.Length;
 
-                    output[i] = PigFormat(words[i], 2);
-                    //Console.WriteLine(output[i]);
+                        }
+
+                    }
+
+                    else
+                    {
+
+                        j++;
+
+                    }
 
                 }
 
@@ -146,17 +167,6 @@ namespace Capstone1
 
         static void Main(string[] args)
         {
-
-            //Console.WriteLine(ValidUserInput());      //Test
-
-            //var wordArray = ToPigLatin(StringToWords(ValidUserInput()));
-
-            //for (int i = wordArray.Length - 1; i >= 0; i--)
-            //{
-
-            //    Console.WriteLine(wordArray[wordArray.Length - 1 - i]);
-
-            //}
 
             char goAgain = 'y';
 

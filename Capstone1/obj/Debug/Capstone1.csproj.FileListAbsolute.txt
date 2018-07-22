@@ -5,3 +5,10 @@ C:\Users\ashke\source\repos\Capstone1\Capstone1\bin\Debug\Capstone1.exe
 C:\Users\ashke\source\repos\Capstone1\Capstone1\bin\Debug\Capstone1.pdb
 C:\Users\ashke\source\repos\Capstone1\Capstone1\obj\Debug\Capstone1.exe
 C:\Users\ashke\source\repos\Capstone1\Capstone1\obj\Debug\Capstone1.pdb
+E:\Repos\GrandCircus\Capstone1\Capstone1\bin\Debug\Capstone1.exe.config
+E:\Repos\GrandCircus\Capstone1\Capstone1\bin\Debug\Capstone1.exe
+E:\Repos\GrandCircus\Capstone1\Capstone1\bin\Debug\Capstone1.pdb
+E:\Repos\GrandCircus\Capstone1\Capstone1\obj\Debug\Capstone1.csprojAssemblyReference.cache
+E:\Repos\GrandCircus\Capstone1\Capstone1\obj\Debug\Capstone1.csproj.CoreCompileInputs.cache
+E:\Repos\GrandCircus\Capstone1\Capstone1\obj\Debug\Capstone1.exe
+E:\Repos\GrandCircus\Capstone1\Capstone1\obj\Debug\Capstone1.pdb
